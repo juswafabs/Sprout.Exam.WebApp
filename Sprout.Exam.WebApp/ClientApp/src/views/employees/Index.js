@@ -75,7 +75,10 @@ export class EmployeesIndex extends Component {
       });
   
       if (response.status == 401)
+      {
         this.props.history.push("/authentication/login");
+        return;
+      }
   
       const employees = await response.json();
       this.setState({ employees: employees.data, loading: false });
